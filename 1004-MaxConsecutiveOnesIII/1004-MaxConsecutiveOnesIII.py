@@ -1,4 +1,4 @@
-# Last updated: 6/1/2026, 7:42:27 PM
+# Last updated: 6/1/2026, 7:43:17 PM
 1class Solution(object):
 2    def longestOnes(self, nums, k):
 3        """
@@ -11,15 +11,14 @@
 10        result = 0
 11        for right in range(len(nums)):
 12            if nums[right] == 0:
-13                if flips < k:
-14                      flips += 1
-15                else:
-16                    while flips>=k and left<=right  :
-17                        if nums[left] == 0:
-18                            flips-= 1
-19                        left += 1
-20                    flips+=1
-21            result = max(result,right -left+ 1)
-22
-23        return result
-24                            
+13                flips += 1
+14                
+15            while flips>k and left<=right  :
+16                if nums[left] == 0:
+17                    flips-= 1
+18                left += 1
+19                    
+20            result = max(result,right -left+ 1)
+21
+22        return result
+23                            
